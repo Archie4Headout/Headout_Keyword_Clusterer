@@ -1,0 +1,436 @@
+:root {
+    /* Light Mode Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f1f1f1;
+    --text-primary: #121212;
+    --text-secondary: #757575;
+    --heading-color: #8000ff;
+    --button-primary: #ff007a;
+    --button-hover: #8000ff;
+    --error-bg: #ffe6f0;
+    --error-text: #ff4d6d;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1f1f1f;
+    --text-primary: #ffffff;
+    --text-secondary: #dcdcdc;
+    --heading-color: #8000ff;
+    --button-primary: #ff007a;
+    --button-hover: #8000ff;
+    --error-bg: #ff4d6d;
+    --error-text: #ffffff;
+    --border-color: #2c2c2c;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background-color: var(--bg-primary);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--button-primary);
+    color: white;
+    transform: scale(1.05);
+}
+
+.theme-icon {
+    font-size: 1.2em;
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transform: translateY(-1px);
+}
+
+.card-title {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: var(--button-primary);
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.btn-info {
+    background-color: var(--button-primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-info:hover {
+    background-color: var(--button-hover);
+}
+
+.btn-info:active {
+    background-color: #117a8b;
+}
+
+.cluster-container {
+    min-height: 200px;
+}
+
+.cluster-section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    color: var(--heading-color);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--button-primary);
+}
+
+.cluster {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.cluster:hover {
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.cluster-header {
+    padding: 16px;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cluster-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cluster-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.keyword-count {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+.cluster-volume {
+    color: var(--text-primary);
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+.cluster-volume strong {
+    color: var(--button-primary);
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: #6c757d;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s;
+}
+
+.toggle-button:hover {
+    color: #2c3e50;
+}
+
+.cluster-content {
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.keyword-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.keyword-list li {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.keyword-list li:last-child {
+    border-bottom: none;
+}
+
+.keyword-list li:hover {
+    background: var(--bg-primary);
+}
+
+.metric-card {
+    background-color: var(--bg-secondary);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.metric-card:hover {
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transform: translateY(-1px);
+}
+
+.metric-card h5 {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-card p {
+    color: var(--text-primary);
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.metric-card p:not(:first-child) {
+    font-size: 1em;
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--button-primary);
+    transition: width 0.3s ease;
+}
+
+#processingStatus {
+    color: var(--button-primary);
+}
+
+#processingStatus.processing {
+    color: var(--button-hover);
+}
+
+#keywordInput {
+    resize: none;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.form-control {
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-control:focus {
+    border-color: var(--button-primary);
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 122, 0.25);
+}
+
+.cluster-section:first-child .section-header {
+    color: #ff007a;
+}
+
+.cluster-section:last-child .section-header {
+    color: #27ae60;
+}
+
+/* Error Log Styles */
+.error-log {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0.95;
+}
+
+.error-log.minimized {
+    max-height: 40px;
+    overflow: hidden;
+}
+
+.error-log-header {
+    padding: 8px 12px;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.error-log-header:hover {
+    background: var(--bg-secondary);
+}
+
+.error-log-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.error-log.minimized .error-log-toggle {
+    transform: rotate(180deg);
+}
+
+.error-log-content {
+    padding: 12px;
+    overflow-y: auto;
+    max-height: 250px;
+    font-size: 12px;
+}
+
+.error-message {
+    margin-bottom: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: var(--error-bg);
+    opacity: 0.9;
+}
+
+.error-timestamp {
+    color: var(--text-secondary);
+    font-size: 10px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.error-text {
+    color: var(--error-text);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+}
+
+.error-details {
+    background: var(--bg-primary);
+    padding: 6px;
+    border-radius: 4px;
+    margin: 0;
+    white-space: pre-wrap;
+    font-size: 10px;
+    color: var(--text-secondary);
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#errorLogButton {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+/* Add smooth transitions for all color changes */
+* {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+} 
